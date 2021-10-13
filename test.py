@@ -1,5 +1,6 @@
 import tornado.ioloop
 import tornado.web
+import socket
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -12,5 +13,5 @@ def make_app():
 
 if __name__ == "__main__":
     app = make_app()
-    app.listen(8888)
+    app.listen(8888,socket.gethostbyname(socket.gethostname()))
     tornado.ioloop.IOLoop.current().start()
